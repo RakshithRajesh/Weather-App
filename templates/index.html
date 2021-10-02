@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Home Page {% endblock title %}
+{% block content %}
+    <br><h2 class="mb-3">Weather App</h2>
+    <form class="row g-3" method="POST">
+        <div class="col-auto">
+            <input type="text" class="form-control" name="cityname" id="cityname" required placeholder="Enter City Name">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-dark mb-3">Submit</button>
+        </div>
+    </form>
+    {% if details %}
+    <br><h2>Weather Details</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Location: <strong>{{ details['location'] }}</strong></li>
+            <li class="list-group-item">Temperature: <strong>{{ details['celsius'] }}°C</strong></li>
+            <li class="list-group-item">Weather: <strong>{{ details['weather'] }}</strong></li>
+            <li class="list-group-item">Precipitation: <strong>{{ details['precipitation'] }}</strong></li>
+            <li class="list-group-item">Humidity: <strong>{{ details['humidity'] }}</strong></li>
+            <li class="list-group-item">Wind Speed: <strong>{{ details['wind'] }}</strong></li>
+        </ul>
+    {% endif %}
+{% endblock content %}
